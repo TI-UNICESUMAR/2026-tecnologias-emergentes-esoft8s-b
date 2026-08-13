@@ -29,7 +29,7 @@ Erro mais comum: codar tudo primeiro e só depois tentar reconstruir os dados pr
 - Qual vai ser o system prompt do projeto? O que justifica essa decisão?
 - Qual ou quais técnicas de prompt você vai aplicar?
 - Onde você vai salvar cada chamada feita? Qual o padrão de log dessas chamadas, contemplando os requisitos abaixo.
-- Qual ferramenta vai usar pra gerar os números de tokens.
+- Qual ferramenta vai usar pra gerar os números de tokens. Sugestão: https://ccusage.com ou o Default dos Harness.
 
 ## 4. Requisitos técnicos obrigatórios
 
@@ -90,9 +90,10 @@ O README do repositório precisa conter, nessa ordem:
 2. O system prompt usado, completo.
 3. A técnica aplicada (few-shot ou chain-of-thought) e por que você escolheu ela. Com evidências.
 4. O teste de curadoria de contexto: as duas versões do prompt (arquivo inteiro vs. trecho) e a comparação de tokens. Com evidências.
-5. Tabela com todas as chamadas feitas: tokens de entrada, tokens de saída, custo estimado por chamada, custo total da sessão. Com evidências.
+5. Tabela com todas as chamadas (de entrada) feitas: tokens de entrada, tokens de saída, custo estimado por chamada, custo total da sessão. Com evidências.
 6. Print ou export do dashboard/log da ferramenta usada, comprovando os números da tabela.
 7. Link da URL publicada.
+8. Nome e RA de todos os alunos que participaram.
 
 ## 9. Rubrica (1,5 ponto)
 
