@@ -9,7 +9,7 @@ Nesta atividade você cria um fluxo novo, com fonte e contrato definidos pelo se
 ## Material
 
 - Conta gratuita do Dify, com o mesmo modelo da A8. Cada execução que chega ao resumo gasta 1 crédito do Dify, e a atividade pede duas ou três. Sem créditos, use a chave gratuita do Gemini.
-- O fluxo de exemplo [dify/exemplo-cor-raca.yml](dify/exemplo-cor-raca.yml), completo, da consulta ao apisidra até o resumo conferido. Ele não corresponde a nenhum cenário e serve de ponto de partida para o `HTTP Request` e o `Code`. Para importar, no Dify, abrir Studio, clicar em Create e escolher "Import DSL file". Os fluxos da aula de quarta consultam `servicodados.ibge.gov.br`, que o Dify deixou de alcançar, e não servem de base para esta atividade.
+- Os fluxos da aula de quarta consultam `servicodados.ibge.gov.br`, que o Dify deixou de alcançar. Eles servem de referência para a montagem dos nós, mas não para a leitura dos dados. O formato das fontes desta atividade está na seção "Fontes".
 - [Documentação do nó LLM do Dify](https://docs.dify.ai/en/cloud/use-dify/nodes/llm).
 - A lista [municipios-pr.md](municipios-pr.md), com os 399 municípios do Paraná em ordem de código IBGE.
 
@@ -56,6 +56,16 @@ Primeira linha de dados do A1 para Maringá:
 {"V": "487.012", "D1N": "Maringá (PR)", "D2C": "6318", "D2N": "Área da unidade territorial", "D3N": "2022"}
 ```
 
+No `Code`, o `body` chega como texto. O trecho abaixo lê a população de uma consulta à tabela 4709, que não é de nenhum cenário. `V` também chega como texto e precisa de `Number` ou `parseInt`.
+
+```javascript
+const linhas = JSON.parse(body).slice(1)
+const linha = linhas.find((l) => l.D2C === "93")
+const populacao = linha ? parseInt(linha.V) : null
+```
+
+Nos arquivos do repositório, o valor do município é lido pela chave, como `JSON.parse(body)[codigo_ibge]`.
+
 ## Contrato
 
 Todo fluxo entrega um objeto `contrato` no mesmo formato dos fluxos da aula.
@@ -76,7 +86,7 @@ Os nomes e os tipos dos campos de `dados` fazem parte do contrato. O orquestrado
 
 1. Criar um Workflow chamado `A9 | <nome do cenário>`, com a entrada `codigo_ibge` do tipo texto.
 2. Acrescentar o `HTTP Request` com método `GET` e a URL do cenário. Inserir `codigo_ibge` pelo seletor de variáveis.
-3. Acrescentar o `Code` "Validar e montar contrato". Ele recebe `codigo_ibge`, `status_code` e `body` e devolve `ok` (número, `1` ou `0`) e `contrato` (objeto). Partir do `Code` do fluxo de exemplo.
+3. Acrescentar o `Code` "Validar e montar contrato". Ele recebe `codigo_ibge`, `status_code` e `body` e devolve `ok` (número, `1` ou `0`) e `contrato` (objeto). A leitura da resposta está na seção "Fontes".
 4. Acrescentar o `If/Else` "Contrato válido?" com a condição `ok` `=` `1`. Ligar o ramo ELSE a um `Output` com a variável `erro`, que recebe o `contrato` do `Code`. O ramo IF segue para o resumo, descrito na próxima seção.
 5. Conferir no Last Run do `Code`. Nos cenários do IBGE, executar com Maringá, `4115200`, e comparar com o detalhamento. Em A4 e B4, executar com o seu código e comparar com o arquivo da cópia.
 
@@ -135,7 +145,7 @@ A chave dá acesso à sua cota no Google. Não a coloque no formulário nem no D
 
 ## Entrega
 
-Responder ao [formulário da turma](https://docs.google.com/forms/d/e/1FAIpQLSc7iVgIIVvEtSfimqMxuZ2OqLStU7fRwHU0gRyuVGT0_9Ch9Q/viewform). Exportar o DSL do seu fluxo e conservar uma cópia. Capturas de tela são opcionais.
+Responder ao [formulário da turma](https://docs.google.com/forms/d/e/1FAIpQLSc7iVgIIVvEtSfimqMxuZ2OqLStU7fRwHU0gRyuVGT0_9Ch9Q/viewform) e anexar o DSL do seu fluxo. Para exportar, no Studio, abrir "More actions" no card do app e escolher "Export DSL". O arquivo `.yml` não leva a chave do Gemini, que fica nas credenciais do workspace. Capturas de tela são opcionais.
 
 ## Critérios de pontuação
 
