@@ -55,7 +55,7 @@ Ao copiar um exemplo, troque o nome da função, a assinatura e o arquivo de sa�
    Preenchi respostas.md. Execute o processo de desenvolvimento para pedido.md.
    ```
 
-   Confira a chamada ao coder e os resultados dos testes. Se surgirem novas dúvidas, responda em `respostas.md` e use o mesmo comando de retomada.
+   Confira a chamada ao coder e os resultados dos testes. Capture o print enquanto a chamada ao agente estiver visível. Se surgirem novas dúvidas, responda em `respostas.md` e use o mesmo comando de retomada.
 
 ## Gere a evidência e entregue
 
@@ -65,7 +65,7 @@ No terminal, execute:
 node evidencia.mjs
 ```
 
-O comando executa os seis testes, confere os arquivos e grava `entrega/evidencia-<RA>.json`. Se houver falhas, leia a orientação “O que fazer”, tente corrigir e gere novamente. Evite repetir `node pedido.mjs` depois de responder às dúvidas, pois esse comando esvazia `respostas.md`.
+O comando executa os seis testes, confere os arquivos e grava `entrega/evidencia-<RA>.json`. Se houver falhas, leia a orientação “O que fazer”. Para falhas na função, envie as mensagens à conversa principal e peça uma correção pelo coder. Depois, gere a evidência novamente. Evite repetir `node pedido.mjs` depois de responder às dúvidas, pois esse comando esvazia `respostas.md`.
 
 [Formulário de entrega da Turma B](https://docs.google.com/forms/d/e/1FAIpQLScX4hDZ3hS5aKjKcc1h3Q1cdEVe1Zqugnt06jFWqQicqqCWCQ/viewform)
 
