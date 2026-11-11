@@ -15,13 +15,13 @@ Um servidor MCP oferece duas ferramentas de um domínio definido pelo seu RA, co
 
 Use Node.js 22.18 ou posterior e uma das ferramentas: Antigravity, Codex ou Claude Code. O Antigravity é a opção gratuita. O kit não usa `npm install` nem Docker.
 
-Baixe `mcp-contrato.zip` desta pasta pelo botão de download do GitHub, extraia e abra um terminal na pasta `mcp-contrato`. Quem fez o laboratório de segunda pode usar a mesma pasta.
+Baixe `mcp-contrato.zip` desta pasta pelo botão de download do GitHub, extraia e abra um terminal na pasta `mcp-contrato`.
 
 ```bash
 node pedido.mjs SEU-RA
 ```
 
-Substitua `SEU-RA` pelo seu RA completo, com hífen e dígito. Na mesma pasta do laboratório de segunda, que usou `treino`, este comando recria `contrato.json`.
+Substitua `SEU-RA` pelo seu RA completo, com hífen e dígito.
 
 O comando mostra o contrato do seu RA, grava `pedido.md`, `frases.md` e `contrato.json` e registra o servidor `aula` nos três harnesses. Cada RA recebe um limite próprio para a ferramenta de alteração, informado em `pedido.md`. Se mudar a pasta de lugar, rode o comando de novo, porque o registro guarda o caminho. Ele mantém o seu `contrato.json`.
 
@@ -43,7 +43,7 @@ Termine o contrato antes deste passo. Só contam as chamadas feitas com a versã
 
 1. Abra a ferramenta na pasta `mcp-contrato` (`agy`, `codex` ou `claude`). Se a sessão já estava aberta, feche e abra de novo. No Claude Code, escolha `Yes, I trust this folder` e depois `Use this MCP server`, porque o cursor começa na opção de recusar. No Codex, aceite confiar na pasta, se a pergunta aparecer.
 
-   No Antigravity, o comando `/mcp` mostra o servidor `aula` e as duas ferramentas do seu domínio. Se aparecerem ferramentas de outro domínio, como as do `treino`, o Antigravity está usando um registro antigo do servidor. Feche a sessão, rode `agy mcp remove aula` na pasta do kit e abra de novo.
+   No Antigravity, o comando `/mcp` mostra o servidor `aula` e as duas ferramentas do seu domínio. Se aparecerem ferramentas de outro domínio, o Antigravity está usando um registro antigo do servidor. Feche a sessão, rode `agy mcp remove aula` na pasta do kit e abra de novo.
 
 2. Peça:
 
