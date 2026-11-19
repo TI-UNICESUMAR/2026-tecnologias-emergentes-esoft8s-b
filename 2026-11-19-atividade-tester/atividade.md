@@ -1,6 +1,6 @@
 # Atividade 12. Agente tester do contrato MCP
 
-Atividade individual de **0,5 ponto**. Entrega em **19/11/2026, até 23h59**, pelo formulário da sua turma.
+Atividade individual de **0,5 ponto**. Entrega em **19/11/2026, até 21h30**, pelo formulário da sua turma.
 
 Você cria um agente tester para o seu contrato MCP da A11. O comando `node testar.mjs` executa os casos que ele escreve no contrato correto do seu RA e em oito contratos com um defeito cada. Depois você explica, sem o harness, duas fronteiras do contrato. Este enunciado diz o que precisa existir no fim. O caminho sai da aula de 18/11 e do contrato que você escreveu na A11.
 
